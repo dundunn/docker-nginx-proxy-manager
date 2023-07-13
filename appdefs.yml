@@ -12,7 +12,7 @@ app:
   name: nginx-proxy-manager
   friendly_name: Nginx Proxy Manager
   gui_type: web
-  gui_port: 8181
+  gui_port: 81
   project:
     description: |-
       Nginx Proxy Manager enables you to easily forward to your websites running at
@@ -67,8 +67,8 @@ app:
 
           | Traffic type | Container port | Host port mapped to container | External port | Internal port | Internal IP address                           |
           |--------------|----------------|-------------------------------|---------------|---------------|-----------------------------------------------|
-          | HTTP         | 8080           | XXXX                          | 80            | XXXX          | IP address of the host running the container. |
-          | HTTPs        | 4443           | YYYY                          | 443           | YYYY          | IP address of the host running the container. |
+          | HTTP         | 80             | XXXX                          | 80            | XXXX          | IP address of the host running the container. |
+          | HTTPs        | 443            | YYYY                          | 443           | YYYY          | IP address of the host running the container. |
 
           `XXXX` and `YYYY` are configurable port values.  Unless they conflict with other
           used ports on the host, they can simply be set to the same value as the
@@ -383,7 +383,7 @@ container:
 
   # Network ports
   ports:
-    - number: 8181
+    - number: 81
       protocol: tcp
       description: >-
         Port used to access the web interface of the application.
@@ -397,7 +397,7 @@ container:
         display: always
         required: true
         mask: false
-    - number: 8080
+    - number: 80
       protocol: tcp
       description: >-
         Port used to serve HTTP requests.
@@ -414,7 +414,7 @@ container:
         display: always
         required: true
         mask: false
-    - number: 4443
+    - number: 443
       protocol: tcp
       description: >-
         Port used to serve HTTPs requests.
